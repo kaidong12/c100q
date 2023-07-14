@@ -1,0 +1,33 @@
+# _*_ Makefile _*_
+
+
+SOURCE_DIR = src
+BUILD_DIR = build
+
+CXX = gcc
+TARGET = main
+
+SRC = $(wildcard $(SOURCE_DIR)/*.c $(SOURCE_DIR)/runoob/*.c)
+OBJ = $(patsubst $(SOURCE_DIR)/%.c, $(BUILD_DIR)/%.o, $(SRC))
+
+CXXFLAGS = -c -Wall
+
+rebuild: clean createdir $(TARGET)
+
+build: $(TARGET)
+
+test: 
+
+$(TARGET): $(OBJ)
+	$(CXX) -o $@ $^
+
+createdir:
+	mkdir $(BUILD_DIR)/runoob
+
+$(BUILD_DIR)/%.o: $(SOURCE_DIR)/%.c
+	$(CXX) $(CXXFLAGS) -o $@ $<
+
+.PHONY: clean
+
+clean:
+	rm -rf *.o $(TARGET) $(BUILD_DIR)/*
