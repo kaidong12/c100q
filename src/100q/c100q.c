@@ -12,7 +12,7 @@
 #include <stdlib.h>
 #include <ctype.h>
 
-void sort(int arr[], int n) {
+void sort(int arr[], int n) { //冒泡排序
 	int i, j, temp;
 	for (i = 0; i < n - 1; i++) {
 		for (j = 0; j < n - i - 1; j++) {
@@ -48,8 +48,8 @@ void sort1(int arr[], int n) {
 }
 
 int main_2() {
-	int arr[10], n = 10, i;
-	printf("Enter 10 numbers: ");
+	int arr[5], n = 5, i;
+	printf("Enter 5 numbers: ");
 	fflush(stdout);
 	for (i = 0; i < n; i++) {
 		scanf("%d", &arr[i]);
